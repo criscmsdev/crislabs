@@ -1,12 +1,15 @@
+
+import { Post } from '@/ui/tailwindCSS/Article'
 import { Headers } from '@/ui/tailwindCSS/header/Headers'
-import { Home } from '@/ui/tailwindCSS/home/home'
 import React from 'react'
 
 export default function Page() {
+  
   return (
-    <React.Fragment>
+    <React.Fragment >
       <Headers />
-      <Home />
+      <Post />
+      <div>article</div>
     </React.Fragment>
   )
 }
