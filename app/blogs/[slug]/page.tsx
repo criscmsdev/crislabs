@@ -9,7 +9,7 @@ export default function Page() {
     <React.Fragment >
       <Headers />
       <Post />
-      <div>article</div>
+      <div>articles</div>
     </React.Fragment>
   )
 }
