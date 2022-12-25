@@ -18,6 +18,8 @@ import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { classNames } from '@/src/utils'
 import { Site } from '@/src/interface/site.interface'
+import Link from 'next/link'
+import { useEcommerceClientUI } from '@/src/context/UIContextEcommerceClient'
 
 const featured = [
   {
@@ -119,8 +121,9 @@ interface Props {
 
 export function StoreNavigation(props: Props) {
   const { site } = props
-  console.log('site', site)
+  // console.log('site', site)
   const [open, setOpen] = useState(false)
+  const { toggleSlideOvers: {value, actions: {toggle, setLeft}} } = useEcommerceClientUI()
 
   return (
     <div className="bg-white">
@@ -283,14 +286,14 @@ export function StoreNavigation(props: Props) {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="#">
-                  <span className="sr-only">Your Company</span>
+                <Link href="/projects/hardware-store/63a07590f6e7d8a5a48fcf3b">
+                  {/* <span className="sr-only">Your Company</span> */}
                   <img
                     className="h-8 w-auto"
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                     alt=""
                   />
-                </a>
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -427,14 +430,14 @@ export function StoreNavigation(props: Props) {
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                  <div onClick={toggle} className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>

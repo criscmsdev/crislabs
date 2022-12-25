@@ -144,9 +144,9 @@ export const SiteForm: FC<SiteForm> = ({ site }) => {
     <form
       onSubmit={handleSubmit(onSubmit)}
       method="POST"
-      className="grid grid-cols-1 content-between "
+      className="flex h-full flex-col"
     >
-      <div className=" sm:rounded-md px-2  inset-x-0 top-0">
+      <div className="flex-1 overflow-y-auto sm:rounded-md px-2  inset-x-0 top-0">
         <div className="p-2 ">
           <div className="grid grid-cols-6 gap-6">
             <div className="col-span-6">
@@ -237,6 +237,7 @@ export const SiteForm: FC<SiteForm> = ({ site }) => {
           </div>
         </div>
       </div>
+
       <div className=" group-button-form inset-x-0 bottom-0">
         <button type="submit" className="btn-primary ">
           {site ? 'Update' : 'Created'}

@@ -20,7 +20,6 @@ export default async function Page(props: Props) {
 
   return (
     <SearchProvider>
-      {/* <HeadingDashboard /> */}
       <HeadingDashboard site={site}/>
       <HardwareStoreGridPages0 pages0={pages} parentId={siteId} />
     </SearchProvider>

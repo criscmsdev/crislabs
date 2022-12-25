@@ -23,9 +23,7 @@ export default async function Page(props: Props) {
     params: { page2Id, siteId },
   } = props;
   const page = await hardwareStoreGetPage2(page2Id);
-  // console.log('page', page)
-const products = await hardwareStoreGetProductsWithCursor({ first: 12 }, page.dataPage.type, page2Id);
-// console.log('products', products)
+  const products = await hardwareStoreGetProductsWithCursor({ first: 12 }, page.dataPage.type, page2Id);
   return (
     <SearchProvider>
       <HeadingDashboard page={page} />

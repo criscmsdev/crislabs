@@ -4,7 +4,24 @@
 import { articles } from '@/lib/demos';
 import { Article } from '@/src/interface/article.interface';
 import Markdown from 'markdown-to-jsx';
+import dynamic from 'next/dynamic';
 import React from 'react';
+
+import { MarkdownPreview } from './markdown/Markdown';
+
+
+
+// import { MdxContent } from './markdown/mdx-content';
+// const MdxContent = dynamic(() => import("./markdown/mdx-content"), { ssr: false })
+
+// import { MarkdownPreview } from './markdown/Markdown';
+
+// const MarkdownPreview = dynamic(() => import("./markdown/Markdown"), { ssr: false })
+
+// const MarkdownPreview = dynamic(() => import("./markdown/Markdown"), {
+//   loading: () => <p>Loading...</p>,
+// })
+// import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 
 
@@ -127,14 +144,13 @@ try {
 
 
 interface Props {
-  
 }
 
 
 
 
 export function Post(props: Props) {
-
+  
   return (
     <article className="max-w-2xl px-6 py-6 mx-auto space-y-12  text-gray-900">
       <div className="w-full mx-auto space-y-4 text-center">
@@ -148,14 +164,38 @@ export function Post(props: Props) {
         
       </div>
       <div className="text-gray-800 prose max-w-none">
-        
-        <Markdown>
-          {/* {markdown} */}
+        {/* <MDXRemote compiledSource={''} {...mdxSource} /> */}
+        {/* <Markdown>
           {articles[0].content}
-        </Markdown>
-
+        </Markdown> */}
+        <MarkdownPreview markdown={ markdown } />
         
+        {/* <ReactMarkdown >
+          {markdown}
+        </ReactMarkdown>
+        <ReactMarkdown
+          children={markdown}
+          components={{
+            code({node, inline, className, children, ...props}) {
+              const match = /language-(\w+)/.exec(className || '')
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  children={String(children).replace(/\n$/, '')}
+                  style={atomOneDark as any}
+                  language={match[1]}
+                  PreTag="div"
+                  {...props}
+                />
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              )
+            }
+          }}
+        /> */}
         {/* <Markdown>{article?.dataArticle.content || ''}</Markdown> */}
+        {/* <MdxContent source={mdxSource} /> */}
       </div>
       
     </article>

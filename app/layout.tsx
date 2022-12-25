@@ -1,10 +1,10 @@
 import { ReactQueryProvider } from '@/src/context/ReactQueryContext';
 import { UIProvider } from '@/src/context/UIContext';
 import '@/styles/dist.css';
+// import '@/styles/globals.css';
 import "swiper/css/bundle";
 import "swiper/css";
 import "swiper/css/navigation";
-
 
 export default function RootLayout({
   children,
@@ -13,10 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <head></head>
+      <head>
+      
+      </head>
       <body>
         <ReactQueryProvider>
-          <UIProvider>{children}</UIProvider>
+          {children}
         </ReactQueryProvider>
       </body>
     </html>

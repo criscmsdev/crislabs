@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import { hardwareStoreGetPage0 } from '@/lib/hardware-store/page/page0/getPage';
 import { hardwareStoreGetPage1 } from '@/lib/hardware-store/page/page1/getPage';
 import { hardwareStoreGetPage2 } from '@/lib/hardware-store/page/page2/getPage';
@@ -9,24 +10,12 @@ import { Article } from '@/src/interface/article.interface';
 import { Page } from '@/src/interface/page.interface';
 import { Product } from '@/src/interface/product.interface';
 import { Site } from '@/src/interface/site.interface';
-// import { Article } from '@/interface/article.interface';
-// import { Page } from '@/interface/page.interface';
-// import { Site } from '@/interface/site.interface';
-// import { wearGetPage0 } from '@/lib/wear/page/page0/getPage';
-// import { wearGetPage1 } from '@/lib/wear/page/page1/getPage';
-// import { wearGetPage2 } from '@/lib/wear/page/page2/getPage';
-// import { wearGetSite } from '@/lib/wear/site/getSite';
-// import { useUI } from '@/src/hooks/useUI';
 import { getQuery } from '@/src/utils';
 import { FolderPlusIcon, PencilIcon } from '@heroicons/react/24/solid';
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import { SlideOvers } from '../SlideOvers';
+import { SlideOversForm } from '../ecommerce/slideOvers';
 import { TabFormPage } from '../tabs/tabFormPage';
 import { TabFormSite } from '../tabs/tabFormSite';
-// import { SlideOvers } from '../SlideOvers';
-// import { TabFormPage } from '../tabs/tabFormPage';
-// import { TabFormSite } from '../tabs/tabFormSite';
 
 const Site = ({ title }: { title: string }) => {
   const query = getQuery();
@@ -609,7 +598,8 @@ export function HeadingDashboard(props: Props) {
           query[2] === 'hardware-store' &&
           query[4] === 'product' && <HardwareStoreProduct product={product!} />}
       </div>
-      <SlideOvers>{childrens}</SlideOvers>
+      {/* <SlideOvers /> */}
+      <SlideOversForm>{childrens}</SlideOversForm>
     </div>
   );
 }
